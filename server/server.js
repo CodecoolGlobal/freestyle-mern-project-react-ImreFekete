@@ -1,0 +1,31 @@
+// MONGOOSE: 
+const mongoose = require('mongoose');
+let FavChar = require('./model/FavouriteCharacter');
+const userId = 'markveszelka';
+const password = 'iV4cZxpwodOxNYTw';
+const clusterId = 'cluster0.ukekemt';
+const budapestTimeZone = (120 * 60 * 1000);
+mongoose.connect(`mongodb+srv://${userId}:${password}@${clusterId}.mongodb.net/mern-project`);
+
+//EXPRESS:
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const PORT = 3000;
+app.listen(PORT, () => console.log(`http://127.0.0.1:${PORT}`));
+
+app.use(cors());
+app.use(express.json());
+
+app.post('/api/favchar', (req, res) => {
+    console.log('REQBODY', req.body);
+    const character = req.body;
+    const createdAt = Date.now() + budapestTimeZone;
+    const favChar = new FavChar({
+        character,
+        createdAt,
+    });
+    favChar.save()
+        .then(addedChar => res.status(200).json(addedChar))
+        .catch(err => res.status(400).json({ success: false }));
+});
