@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/api/favchar', (req, res) => {
-    console.log('REQBODY', req.body);
+    // console.log('REQBODY', req.body);
     const character = req.body;
     const createdAt = Date.now() + budapestTimeZone;
     const favChar = new FavChar({
@@ -28,4 +28,14 @@ app.post('/api/favchar', (req, res) => {
     favChar.save()
         .then(addedChar => res.status(200).json(addedChar))
         .catch(err => res.status(400).json({ success: false }));
+});
+
+app.delete('/api/favchar/:id', async (req, res) => {
+    // console.log(req.params.id);
+    const deleteDocumentId = req.params.id;
+    FavChar.deleteOne({ _id: deleteDocumentId })
+        .then(deletedChar => console.log(deletedChar))
+        .catch(error => console.error(error));
+    const allFavChars = await FavChar.find();
+    res.status(200).json(allFavChars);
 });
