@@ -27,7 +27,7 @@ app.post('/api/favchar', (req, res) => {
     });
     favChar.save()
         .then(addedChar => res.status(200).json(addedChar))
-        .catch(err => res.status(400).json({ success: false }));
+        .catch(() => res.status(400).json({ success: false }));
 });
 
 app.delete('/api/favchar/:id', async (req, res) => {
