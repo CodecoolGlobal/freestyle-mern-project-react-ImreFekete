@@ -1,6 +1,7 @@
 import './App.css';
 import react, { useState, useEffect } from 'react';
 import Header from './components/Header';
+import DisplayCharacters from './components/displayCharacters';
 
 
 function App() {
@@ -51,11 +52,9 @@ function App() {
     <div className="App">
       <Header onChange={handleSearchInputChange} />
       <br />
-      {(filteredChars || characters) && (filteredChars || characters).map((char, index) => (
-        <div key={index}>
-          {char.name}
-        </div>
-      ))}
+      {
+        (filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} />
+      }
     </div>
   );
 }
