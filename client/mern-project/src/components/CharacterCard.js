@@ -19,7 +19,6 @@ const CharacterCard = ({ character, handleAddOrDelete, addOrDelete }) => {
                 {/* <div className='section'>
                     Placeholder section
                 </div> */}
-
                 <button className='addToFavsButton' onClick={handleAddOrDelete}>{addOrDelete}</button>
             </div>
         </article>

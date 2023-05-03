@@ -4,7 +4,6 @@ import CharacterCard from "./CharacterCard";
 import Pagination from "./Pagination";
 
 function DisplayCharacters({ characters, displayState, handleAddOrDelete, addOrDelete }) {
-  
   //determine the data type
   let data = null;
   if (displayState === 'favorites') {

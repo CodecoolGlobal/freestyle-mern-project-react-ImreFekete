@@ -12,20 +12,21 @@ function App() {
   const [appState, setAppstate] = useState('all');
   const [addOrDelete, setAddOrDelete] = useState(null);
 
-  useEffect(() => {
-    const fetchFavourites = async () => {
-      try {
-        const res = await fetch('http://localhost:3000/api/favchar');
-        const data = await res.json();
-        setFavCharacters(data);
-        setIsLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
+  const fetchFavourites = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/favchar');
+      const data = await res.json();
+      setFavCharacters(data);
+      setIsLoaded(true);
+    } catch (error) {
+      console.log(error);
     }
+  }
+
+  useEffect(() => {
     fetchFavourites();
   }, [])
-  
+
   useEffect(() => {
     let fetchedCharacters = [];
 
@@ -78,12 +79,15 @@ function App() {
       },
       body: JSON.stringify(favouriteCharacter)
     })
-      // .then(response => response.json())
-      // .then(data => setFavCharacters(data))
+      .then(response => response.json())
+      .then(data => {
+        setFavCharacters(data);
+        fetchFavourites();
+      })
       .catch(error => console.log(error));
   }
 
-  const handleDeleteFromFavs = (event) => {
+  const handleDeleteFromFavsButton = (event) => {
     const characterId = event.target.parentNode.parentNode.id;
     fetch(`http://localhost:3000/api/favchar/${characterId}`, {
       method: 'DELETE',
@@ -94,11 +98,11 @@ function App() {
   }
 
   useEffect(() => {
-    if (appState === 'favorites') {
-      setAddOrDelete('REMOVE FROM FAVOURITES');
-    }
     if (appState === 'all') {
       setAddOrDelete('ADD TO FAVOURITES');
+    }
+    if (appState === 'favorites') {
+      setAddOrDelete('REMOVE FROM FAVOURITES');
     }
   }, [appState])
 
@@ -112,7 +116,7 @@ function App() {
           <DisplayCharacters
             characters={favCharacters}
             displayState={appState}
-            handleAddOrDelete={handleDeleteFromFavs}
+            handleAddOrDelete={handleDeleteFromFavsButton}
             addOrDelete={addOrDelete}
           />)
           :
