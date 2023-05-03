@@ -43,7 +43,7 @@ function App() {
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
-      setFilteredChars(mainCharArray.filter((character) => character.name.toLowerCase().startsWith(searchValue)))
+      setFilteredChars(characters.filter((character) => character.name.toLowerCase().includes(searchValue)))
     )
   };
 
@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       <Header onChange={handleSearchInputChange} />
       <br />
-      {(filteredChars || mainCharArray) && (filteredChars || mainCharArray).map((char, index) => (
+      {(filteredChars || characters) && (filteredChars || characters).map((char, index) => (
         <div key={index}>
           {char.name}
         </div>
