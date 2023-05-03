@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 function DisplayCharacters({ characters, displayState }) {
   //determine the data type
   let data = null;
-  if (displayState == 'favourites') {
+  if (displayState == 'favorites') {
     data = characters.map(character=> character.character);
   }
   else{
@@ -28,7 +28,7 @@ function DisplayCharacters({ characters, displayState }) {
     <>
       <div className="displayCharacters">
         {
-          currentChars.map(char =>
+          currentChars.map((char) =>
             <CharacterCard
               key={char.id}
               character={char}
