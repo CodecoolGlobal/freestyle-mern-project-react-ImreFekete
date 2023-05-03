@@ -57,11 +57,16 @@ function App() {
     )
   };
 
+  const handleFavorites = (state) => {
+    setAppstate(state);
+  }
+
   return (
     <div className="App">
-      <Header handleSearchInputChange={handleSearchInputChange} />
+      <Header onClickFavorites={handleFavorites} handleSearchInputChange={handleSearchInputChange} />
       <br />
-      {appState == 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} displayState={appState} />) :
+      {appState === 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} displayState={appState} />)
+        :
         ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} displayState={appState} />)}
     </div>
   );
