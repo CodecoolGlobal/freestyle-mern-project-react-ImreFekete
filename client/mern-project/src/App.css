@@ -41,6 +41,7 @@
 
 button {
   margin: 5px;
+  cursor: pointer;
 }
 
 label {
