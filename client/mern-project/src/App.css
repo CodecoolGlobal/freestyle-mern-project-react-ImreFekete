@@ -5,6 +5,7 @@
 
 .App {
   text-align: center;
+  background-color: black;
 }
 
 .headerWrapper {
@@ -52,4 +53,57 @@ label {
 
 input {
   width: 200px;
+}
+
+h2 {
+  font-family: 'Get Schwifty';
+  color: rgb(91, 255, 228);
+  letter-spacing: 0.1em;
+  -webkit-text-stroke: 0.1px #08e34d;
+}
+
+.displayCharacters {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1920px;
+  color: white;
+  background-image: url('https://rare-gallery.com/uploads/posts/340156-Rick-and-Morty-Cartoon-Morty-Smith-Rick-Sanchez-Night-Sky-Space-Stars.jpg');
+  background-attachment: scroll;
+  background-repeat: repeat;
+
+
+}
+
+.charCard_Wrapper {
+  display: flex;
+  background-color: rgb(255, 255, 255, 0.3);
+  margin: 0.75rem;
+  border: 1px black solid;
+  border-radius: 10px;
+  height: 300px;
+  width: 600px;
+}
+
+.charCard_ImageWrapper {
+  display: flex;
+}
+
+.charCard_ContentWrapper {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.profilePicture {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.charCard_ContentWrapper {
+  display: flex;
+  flex-direction: column;
 }
