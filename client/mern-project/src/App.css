@@ -9,14 +9,14 @@ body {
 
 .App {
   text-align: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 .loadingContainer {
   display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
 }
 
 .loading {
@@ -49,8 +49,9 @@ body {
 }
 
 .titleImage {
-  width: 80%;
+  width: 55%;
   max-width: 600px;
+  height: 250px;
 }
 
 .searchBar {
@@ -75,9 +76,10 @@ input {
 
 h2 {
   font-family: 'Get Schwifty';
-  color: rgb(91, 255, 228);
+  font-size: 35px;
+  color: rgb(65, 255, 223);
   letter-spacing: 0.1em;
-  -webkit-text-stroke: 0.1px rgb(8, 227, 77);
+  -webkit-text-stroke: 0.1px rgb(0, 0, 0);
 }
 
 .displayCharacters {
@@ -89,10 +91,20 @@ h2 {
   flex-wrap: wrap;
   max-width: 1920px;
   color: rgb(77, 255, 133);
-  background-image: url('https://rare-gallery.com/uploads/posts/340156-Rick-and-Morty-Cartoon-Morty-Smith-Rick-Sanchez-Night-Sky-Space-Stars.jpg');
-  background-size: contain;
+  /* OPTION 1 */
+  /* background-image: url('https://rare-gallery.com/uploads/posts/340156-Rick-and-Morty-Cartoon-Morty-Smith-Rick-Sanchez-Night-Sky-Space-Stars.jpg'); */
+  /* background-size: contain;
   background-attachment: fixed;
-  background-repeat: repeat;
+  background-repeat: repeat; */
+  /* OPTION 2 */
+  /* background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/9494.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat; */
+  /* OPTION 3 */
+  background-image: url('https://wallpaper.dog/large/10839498.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
 .charCard_Wrapper {
@@ -112,6 +124,17 @@ h2 {
   width: 100%;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.status {
+  font-size: 22px;
+  -webkit-text-stroke: 0.1px rgb(255, 255, 255);
+}
+
+.section {
+  font-size: 18px;
+  -webkit-text-stroke: 0.1px rgb(255, 255, 255);
+
 }
 
 .profilePicture {
