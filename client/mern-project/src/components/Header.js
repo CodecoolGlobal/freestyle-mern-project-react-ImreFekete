@@ -1,4 +1,4 @@
-function Header({ onClickFavorites, onInputFieldChange }) {
+function Header({ onClickFavorites, handleSearchInputChange }) {
 
     return (
         <div className='headerWrapper'>
@@ -11,7 +11,7 @@ function Header({ onClickFavorites, onInputFieldChange }) {
             </div>
             <div className='searchBar'>
                 <label>Search for a character in our database!</label>
-                <input type="text" placeholder='Search for characters...' onChange={onInputFieldChange} />
+                <input type="text" placeholder='Search for characters...' onChange={(event)=>handleSearchInputChange(event)} />
             </div>
         </div>
     );

@@ -49,6 +49,7 @@ function App() {
 
   const handleSearchInputChange = (event) => {
     const searchValue = event.target.value.toLowerCase();
+    console.log(event.target.value)
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
@@ -56,19 +57,12 @@ function App() {
     )
   };
 
-  const handleFavorites = (state) => {
-    setAppstate(state);
-  }
-
   return (
     <div className="App">
-      <Header onClickFavorites={handleFavorites} onInputFieldChange={handleSearchInputChange} />
+      <Header handleSearchInputChange={handleSearchInputChange} />
       <br />
-      {
-        appState === 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} displayState={appState} />)
-          :
-          ((characters || filteredChars) && <DisplayCharacters characters={(characters || filteredChars)} displayState={appState} />)
-      }
+      {appState == 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} displayState={appState} />) :
+        ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} displayState={appState} />)}
     </div>
   );
 }
