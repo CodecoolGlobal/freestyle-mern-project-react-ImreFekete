@@ -2,6 +2,30 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+  const [pages, setPages] = useState([]);
+
+  useEffect(() => {
+    const fetchPages = async (url) => {
+      try {
+        const res = await fetch(url)
+        const data = await res.json();
+        setCharacters(_characters => {
+          return [...characters, ...data.results]
+        })
+        setPages(_pages => {
+          return [...pages, data.results]
+        })
+        if (data.info && data.info.next) {
+          fetchPages(data.info.next);
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchPages('https://rickandmortyapi.com/api/character')
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
