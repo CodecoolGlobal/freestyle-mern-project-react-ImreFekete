@@ -3,6 +3,10 @@
   src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff') format('woff');
 }
 
+body {
+  background-color: black;
+}
+
 .App {
   text-align: center;
   background-color: black;
@@ -73,7 +77,7 @@ h2 {
   font-family: 'Get Schwifty';
   color: rgb(91, 255, 228);
   letter-spacing: 0.1em;
-  -webkit-text-stroke: 0.1px #08e34d;
+  -webkit-text-stroke: 0.1px rgb(8, 227, 77);
 }
 
 .displayCharacters {
@@ -84,7 +88,7 @@ h2 {
   align-items: center;
   flex-wrap: wrap;
   max-width: 1920px;
-  color: white;
+  color: rgb(77, 255, 133);
   background-image: url('https://rare-gallery.com/uploads/posts/340156-Rick-and-Morty-Cartoon-Morty-Smith-Rick-Sanchez-Night-Sky-Space-Stars.jpg');
   background-attachment: scroll;
   background-repeat: repeat;
