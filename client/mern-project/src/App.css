@@ -8,6 +8,20 @@
   background-color: black;
 }
 
+.loadingContainer {
+  display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+}
+
 .headerWrapper {
   padding: 10px;
   background-color: black;
