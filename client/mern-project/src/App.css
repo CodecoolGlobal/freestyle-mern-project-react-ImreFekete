@@ -39,6 +39,15 @@
   align-items: center;
 }
 
+button {
+  margin: 5px;
+}
+
+label {
+  padding: 10px;
+  color: white;
+}
+
 input {
   width: 200px;
 }
