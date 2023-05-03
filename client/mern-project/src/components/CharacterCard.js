@@ -14,8 +14,8 @@ const CharacterCard = ({ character }) => {
                     </div>
                 </div>
                 <div className='section'>
-                    <span>Last known location:</span>
-                    {character.location.name}
+                    <span>Last known location: {character.location.name}</span>
+                    
                 </div>
                 <div className='section'>
                     Placeholder section

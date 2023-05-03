@@ -27,6 +27,8 @@ function DisplayCharacters({ characters }) {
             />
           )
         }
+      </div>
+      <div>
         <Pagination nPages={nPages} currentPage={currentPage} handleCurrentPage={setCurrentPage}/>
       </div>
     </>

@@ -74,15 +74,12 @@ h2 {
   background-image: url('https://rare-gallery.com/uploads/posts/340156-Rick-and-Morty-Cartoon-Morty-Smith-Rick-Sanchez-Night-Sky-Space-Stars.jpg');
   background-attachment: scroll;
   background-repeat: repeat;
-
-
 }
 
 .charCard_Wrapper {
   display: flex;
   background-color: rgb(255, 255, 255, 0.3);
   margin: 0.75rem;
-  border: 1px black solid;
   border-radius: 10px;
   height: 300px;
   width: 600px;
@@ -106,4 +103,8 @@ h2 {
 .charCard_ContentWrapper {
   display: flex;
   flex-direction: column;
+}
+
+.pageNav {
+  display: flex;
 }
