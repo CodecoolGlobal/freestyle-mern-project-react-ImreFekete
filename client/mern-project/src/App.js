@@ -1,6 +1,7 @@
 import './App.css';
 import react, { useState, useEffect } from 'react';
 import Header from './components/Header';
+import CharacterCard from './components/CharacterCard';
 
 
 function App() {
@@ -51,11 +52,12 @@ function App() {
     <div className="App">
       <Header onChange={handleSearchInputChange} />
       <br />
-      {(filteredChars || characters) && (filteredChars || characters).map((char, index) => (
-        <div key={index}>
-          {char.name}
-        </div>
-      ))}
+        {(filteredChars || characters) && (filteredChars || characters).map((char) => (
+          <CharacterCard
+            key={char.id}
+            character={char}
+          />
+        ))}
     </div>
   );
 }
