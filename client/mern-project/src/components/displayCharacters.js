@@ -3,11 +3,12 @@ import { useState } from "react";
 import CharacterCard from "./CharacterCard";
 import Pagination from "./Pagination";
 
-function DisplayCharacters({ characters, displayState }) {
+function DisplayCharacters({ characters, displayState, handleAddOrDelete, addOrDelete }) {
+  
   //determine the data type
   let data = null;
   if (displayState === 'favorites') {
-    data = characters.map(character=> character.character);
+    data = characters.map(character => character.character);
   }
   else{
     data = characters;
@@ -32,6 +33,8 @@ function DisplayCharacters({ characters, displayState }) {
             <CharacterCard
               key={char.id}
               character={char}
+              handleAddOrDelete={handleAddOrDelete}
+              addOrDelete={addOrDelete}
             />
           )
         }

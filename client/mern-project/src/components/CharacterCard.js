@@ -1,7 +1,7 @@
-const CharacterCard = ({ character }) => {
+const CharacterCard = ({ character, handleAddOrDelete, addOrDelete }) => {
 
     return (
-        <article className='charCard_Wrapper'>
+        <article className='charCard_Wrapper' id={character.id}>
             <div className='charCard_ImageWrapper'>
                 <img className='profilePicture' src={character.image} alt={character.name} />
             </div>
@@ -15,11 +15,12 @@ const CharacterCard = ({ character }) => {
                 </div>
                 <div className='section'>
                     <span>Last known location: {character.location.name}</span>
-                    
                 </div>
-                <div className='section'>
+                {/* <div className='section'>
                     Placeholder section
-                </div>
+                </div> */}
+
+                <button className='addToFavsButton' onClick={handleAddOrDelete}>{addOrDelete}</button>
             </div>
         </article>
     )

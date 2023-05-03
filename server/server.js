@@ -22,25 +22,31 @@ app.get('/api/favchar', async (req, res) => {
     res.status(200).send(allFavChars);
 });
 
-app.post('/api/favchar', (req, res) => {
+app.post('/api/favchar', async (req, res) => {
     // console.log('REQBODY', req.body);
+    const id = req.body.id;
     const character = req.body;
     const createdAt = Date.now() + budapestTimeZone;
     const favChar = new FavChar({
+        id,
         character,
         createdAt,
     });
-    favChar.save()
-        .then(addedChar => res.status(200).json(addedChar))
-        .catch(() => res.status(400).json({ success: false }));
+    // favChar.save()
+    //     .then(addedChar => res.status(200).json(addedChar))
+    //     .catch(() => res.status(400).json({ success: false }));
+    favChar.save();
+    const allFavChars = await FavChar.find();
+    res.status(200).json(allFavChars);
 });
 
 app.delete('/api/favchar/:id', async (req, res) => {
-    // console.log(req.params.id);
+    // console.log('REQ PARAM', req.params.id);
     const deleteDocumentId = req.params.id;
-    FavChar.deleteOne({ _id: deleteDocumentId })
+    FavChar.deleteOne({ id: deleteDocumentId })
         .then(deletedChar => console.log(deletedChar))
         .catch(error => console.error(error));
     const allFavChars = await FavChar.find();
     res.status(200).json(allFavChars);
 });
+
