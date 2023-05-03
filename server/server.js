@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.get('/api/favchar', async (req, res) => {
     const allFavChars = await FavChar.find({});
-    res.status(200).json(allFavChars);
+    res.status(200).send(allFavChars);
 });
 
 app.post('/api/favchar', (req, res) => {
