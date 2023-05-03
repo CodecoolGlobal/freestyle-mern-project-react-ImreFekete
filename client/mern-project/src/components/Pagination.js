@@ -7,7 +7,7 @@ function Pagination({ nPages, currentPage, handleCurrentPage }) {
       <nav>
         <ul>
           <li className="pageNav_item">
-            <a onClick={()=> handleCurrentPage(currentPage-1)} href="#">Prev</a>
+            <a onClick={() => handleCurrentPage(currentPage - 1)} href="#">Prev</a>
           </li>
           {
             pageNumbers.map(pgNumber => {
@@ -21,7 +21,7 @@ function Pagination({ nPages, currentPage, handleCurrentPage }) {
             })
           }
           <li className="pageNav_item">
-            <a onClick={()=> handleCurrentPage(currentPage+1)} href="#">Next</a>
+            <a onClick={() => handleCurrentPage(currentPage + 1)} href="#">Next</a>
           </li>
         </ul>
       </nav>

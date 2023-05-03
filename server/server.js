@@ -17,6 +17,11 @@ app.listen(PORT, () => console.log(`http://127.0.0.1:${PORT}`));
 app.use(cors());
 app.use(express.json());
 
+app.get('/api/favchar', async (req, res) => {
+    const allFavChars = await FavChar.find({});
+    res.status(200).send(allFavChars);
+});
+
 app.post('/api/favchar', (req, res) => {
     // console.log('REQBODY', req.body);
     const character = req.body;

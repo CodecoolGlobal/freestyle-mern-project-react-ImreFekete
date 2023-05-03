@@ -1,9 +1,17 @@
 import React from "react";
-import { useState} from "react";
+import { useState } from "react";
 import CharacterCard from "./CharacterCard";
 import Pagination from "./Pagination";
 
-function DisplayCharacters({ characters }) {
+function DisplayCharacters({ characters, displayState }) {
+  //determine the data type
+  let data = null;
+  if (displayState === 'favorites') {
+    data = characters.map(character=> character.character);
+  }
+  else{
+    data = characters;
+  }
   // User is currently on this page
   const [currentPage, setCurrentPage] = useState(1);
   // Number of Char to be displayed on each page   
@@ -12,15 +20,15 @@ function DisplayCharacters({ characters }) {
   const indexOfFirstChar = indexOfLastChar - charsPerPage;
 
   // Chars to be displayed on the current page
-  const currentChars = characters.slice(indexOfFirstChar,
+  const currentChars = data.slice(indexOfFirstChar,
     indexOfLastChar);
-  const nPages = Math.ceil(characters.length / charsPerPage);
+  const nPages = Math.ceil(data.length / charsPerPage);
 
   return (
     <>
       <div className="displayCharacters">
         {
-          currentChars.map(char => 
+          currentChars.map((char) =>
             <CharacterCard
               key={char.id}
               character={char}
