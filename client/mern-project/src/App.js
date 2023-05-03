@@ -26,7 +26,9 @@ function App() {
   }, [])
 
   useEffect(() => {
+
     let fetchedCharacters = [];
+
     const fetchPages = async (url) => {
       try {
         const res = await fetch(url)
@@ -35,9 +37,11 @@ function App() {
 
         if (data.info && data.info.next) {
           fetchPages(data.info.next);
+          setisLoaded(true);
         }
         else {
           setCharacters(fetchedCharacters);
+          setisLoaded(true);
         }
       } catch (error) {
         console.log(error)
@@ -48,7 +52,7 @@ function App() {
 
   const handleSearchInputChange = (event) => {
     const searchValue = event.target.value.toLowerCase();
-    console.log(event.target.value)
+    // console.log(event.target.value)
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
