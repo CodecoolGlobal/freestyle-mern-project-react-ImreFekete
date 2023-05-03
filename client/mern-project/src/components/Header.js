@@ -11,7 +11,7 @@ function Header({ onClickFavorites, handleSearchInputChange }) {
             </div>
             <div className='searchBar'>
                 <label>Search for a character in our database!</label>
-                <input type="text" placeholder='Search for characters...' onChange={(event)=>handleSearchInputChange(event)} />
+                <input type="text" placeholder='Search for characters...' onChange={handleSearchInputChange} />
             </div>
         </div>
     );
