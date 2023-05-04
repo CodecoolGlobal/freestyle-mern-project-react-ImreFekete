@@ -147,6 +147,7 @@ h2 {
   border-radius: 10px;
   height: 400px;
   width: 700px;
+  outline-style: groove;
 }
 
 .charCard_ImageWrapper {

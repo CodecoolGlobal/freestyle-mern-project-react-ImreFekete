@@ -6,7 +6,7 @@ function Header({ appState, onFilterClick, handleSearchInputChange }) {
         <div className='headerWrapper'>
             <div className='headerButtons'>
                 {appState === 'characters' && <button id='favBtn' onClick={() => onFilterClick('favCharacters')}>Favorites</button>}
-                {appState === 'favCharacters' && <button id='mainBtn' onClick={() => onFilterClick('characters')}>All Characters</button>}
+                {appState === 'favCharacters' && <button id='mainBtn' onClick={() => onFilterClick('characters')}>Back to Main Page</button>}
             </div>
             <div className='headers'>
                 <img className='titleImage' src={headerPicture} alt='logo'></img>
