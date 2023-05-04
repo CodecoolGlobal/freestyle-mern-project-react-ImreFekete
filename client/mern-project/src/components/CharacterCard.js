@@ -13,13 +13,12 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
     }
 
     const handleRemoveFromFavButton = (character) => {
-        fetch(`http://localhost:3000/api/favchar/${character._id}`, {
+        fetch(`http://localhost:3000/api/favchar/${character.id}`, {
             method: 'DELETE',
         })
             .then(response => response.json())
-            .then(response => console.log(response))
             .catch(error => console.log(error));
-        handleSetFavChars(favChar.filter(char => char !== character))
+        handleSetFavChars(favChar.filter(char => char.id !==character.id))
     }
 
     const isFav = (character, favChar) => {

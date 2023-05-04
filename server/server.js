@@ -39,7 +39,7 @@ app.post('/api/favchar', (req, res) => {
 app.delete('/api/favchar/:id', async (req, res) => {
     // console.log(req.params.id);
     const deleteDocumentId = req.params.id;
-    FavChar.deleteOne({ _id: deleteDocumentId })
+    FavChar.deleteOne({ id: deleteDocumentId })
         .then(deletedChar => console.log(deletedChar))
         .catch(error => console.error(error));
     const allFavChars = await FavChar.find();
