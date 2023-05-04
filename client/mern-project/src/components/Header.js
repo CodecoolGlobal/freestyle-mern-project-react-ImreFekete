@@ -1,12 +1,12 @@
 import headerPicture from '../Rick-And-Morty-Logo.png';
 
-function Header({ onFilterClick, handleSearchInputChange }) {
+function Header({ appState, onFilterClick, handleSearchInputChange }) {
 
     return (
         <div className='headerWrapper'>
             <div className='headerButtons'>
-                <button id='favBtn' onClick={() => onFilterClick('favCharacters')}>Favorites</button>
-                <button id='mainBtn' onClick={() => onFilterClick('characters')}>All Characters</button>
+                {appState === 'characters' && <button id='favBtn' onClick={() => onFilterClick('favCharacters')}>Favorites</button>}
+                {appState === 'favCharacters' && <button id='mainBtn' onClick={() => onFilterClick('characters')}>All Characters</button>}
             </div>
             <div className='headers'>
                 <img className='titleImage' src={headerPicture} alt='logo'></img>

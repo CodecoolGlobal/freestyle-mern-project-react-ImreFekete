@@ -142,11 +142,11 @@ h2 {
 
 .charCard_Wrapper {
   display: flex;
-  background-color: rgba(80, 80, 80, 0.7);
+  background-color: rgba(80, 80, 80, 0.8);
   margin: 0.75rem;
   border-radius: 10px;
-  height: 300px;
-  width: 600px;
+  height: 400px;
+  width: 700px;
 }
 
 .charCard_ImageWrapper {
@@ -177,7 +177,7 @@ h2 {
   display: flex;
   position: absolute;
   cursor: pointer;
-  height: 70px;
+  height: 100px;
   width: auto;
   scale: 1;
   transition: 3s;

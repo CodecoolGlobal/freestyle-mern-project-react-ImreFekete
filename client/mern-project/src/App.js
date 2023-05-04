@@ -69,7 +69,7 @@ function App() {
   if (isLoaded) {
     return (
       <div className="App">
-        <Header onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />
+        <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />
         {appState === 'favCharacters' ? ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
           :
           ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)}

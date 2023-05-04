@@ -52,7 +52,7 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
                     </div>
                 </div>
                 <div className='section'>
-                    <span>Last known location: {character.location.name}</span>
+                    <span>Last known location: <p>{character.location.name}</p></span>
 
                 </div>
                 <div className='section'>
