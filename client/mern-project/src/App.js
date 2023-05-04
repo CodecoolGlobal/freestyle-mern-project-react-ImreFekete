@@ -8,7 +8,7 @@ function App() {
   const [isLoaded, setisLoaded] = useState(false);
   const [characters, setCharacters] = useState([]);
   const [filteredChars, setFilteredChars] = useState(null);
-  const [favCharacters, setFavCharacters] = useState(null);
+  const [favCharacters, setFavCharacters] = useState([]);
   const [appState, setAppstate] = useState('characters');
 
   useEffect(() => {
