@@ -81,7 +81,7 @@ function App() {
     })
       .then(response => response.json())
       .then(data => {
-        setFavCharacters(data);
+        // setFavCharacters(data);
         fetchFavourites();
       })
       .catch(error => console.log(error));
@@ -93,7 +93,10 @@ function App() {
       method: 'DELETE',
     })
       .then(response => response.json())
-      .then(data => setFavCharacters(data))
+      .then(data => {
+        // setFavCharacters(data);
+        fetchFavourites();
+      })
       .catch(error => console.log(error));
   }
 

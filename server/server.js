@@ -35,9 +35,14 @@ app.post('/api/favchar', async (req, res) => {
     // favChar.save()
     //     .then(addedChar => res.status(200).json(addedChar))
     //     .catch(() => res.status(400).json({ success: false }));
-    favChar.save();
-    const allFavChars = await FavChar.find();
-    res.status(200).json(allFavChars);
+
+    // CHECK IF ALREADY EXISTS IN MONGODB:
+    FavChar.findOne({ id: id })
+        .then(char => console.log(char)) // FOUND!
+
+    // favChar.save();
+    // const allFavChars = await FavChar.find();
+    // res.status(200).json(allFavChars);
 });
 
 app.delete('/api/favchar/:id', async (req, res) => {
