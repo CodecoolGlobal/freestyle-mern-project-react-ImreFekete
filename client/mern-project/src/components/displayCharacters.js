@@ -3,12 +3,12 @@ import { useState } from "react";
 import CharacterCard from "./CharacterCard";
 import Pagination from "./Pagination";
 
-function DisplayCharacters({ characters, favChar, handleSetFavChars}) {
+function DisplayCharacters({ characters, favChar, handleSetFavChars }) {
   // User is currently on this page
   const [currentPage, setCurrentPage] = useState(1);
   // Number of Char to be displayed on each page   
   const [charsPerPage] = useState(30);
- 
+
   const indexOfLastChar = currentPage * charsPerPage;
   const indexOfFirstChar = indexOfLastChar - charsPerPage;
 
@@ -31,9 +31,10 @@ function DisplayCharacters({ characters, favChar, handleSetFavChars}) {
           )
         }
       </div>
-      <div>
-        <Pagination nPages={nPages} currentPage={currentPage} handleCurrentPage={setCurrentPage}/>
-      </div>
+        {
+          favChar.length > 0 ? <Pagination nPages={nPages} currentPage={currentPage} handleCurrentPage={setCurrentPage} /> :
+          <h2>You have no favourites YET!</h2>
+        }
     </>
   );
 };
