@@ -23,13 +23,13 @@ app.get('/api/favchar', async (req, res) => {
 });
 
 app.post('/api/favchar', (req, res) => {
-    // console.log('REQBODY', req.body);
     const character = req.body;
     const createdAt = Date.now() + budapestTimeZone;
     const favChar = new FavChar({
-        character,
+        ...character,
         createdAt,
     });
+    console.log(favChar);
     favChar.save()
         .then(addedChar => res.status(200).json(addedChar))
         .catch(() => res.status(400).json({ success: false }));
