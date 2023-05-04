@@ -1,3 +1,5 @@
+import headerPicture from '../Rick-And-Morty-Logo.png';
+
 function Header({ onFilterClick, handleSearchInputChange }) {
 
     return (
@@ -7,7 +9,7 @@ function Header({ onFilterClick, handleSearchInputChange }) {
                 <button onClick={() => onFilterClick('characters')}>All Characters</button>
             </div>
             <div className='headers'>
-                <img className='titleImage' src='https://logos-world.net/wp-content/uploads/2022/01/Rick-And-Morty-Logo.png' alt='logo'></img>
+                <img className='titleImage' src={headerPicture} alt='logo'></img>
             </div>
             <div className='searchBar'>
                 <label>Search for a character in our database!</label>
