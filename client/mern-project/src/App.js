@@ -53,7 +53,7 @@ function App() {
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
-      appState == 'favCharacters' ? setFilteredChars(favCharacters.filter((character) => character.name.toLowerCase().includes(searchValue))) :
+      appState === 'favCharacters' ? setFilteredChars(favCharacters.filter((character) => character.name.toLowerCase().includes(searchValue))) :
         setFilteredChars(characters.filter((character) => character.name.toLowerCase().includes(searchValue)))
     )
   };

@@ -38,6 +38,33 @@ body {
   justify-content: center;
 }
 
+#favBtn,
+#mainBtn {
+  padding: 10px 20px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline-style: solid;
+  outline-color: yellowgreen;
+  color: #0f0e0e;
+  background-color: #10b5b8;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#favBtn:hover,
+#mainBtn:hover {
+  background-color: #63e8e2
+}
+
+#favBtn:active,
+#mainBtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .headers {
   font-family: 'Get Schwifty';
   display: flex;
@@ -115,7 +142,7 @@ h2 {
 
 .charCard_Wrapper {
   display: flex;
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgba(80, 80, 80, 0.7);
   margin: 0.75rem;
   border-radius: 10px;
   height: 300px;

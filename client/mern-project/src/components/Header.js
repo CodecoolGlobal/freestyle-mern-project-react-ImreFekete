@@ -5,8 +5,8 @@ function Header({ onFilterClick, handleSearchInputChange }) {
     return (
         <div className='headerWrapper'>
             <div className='headerButtons'>
-                <button onClick={() => onFilterClick('favCharacters')}>Favorites</button>
-                <button onClick={() => onFilterClick('characters')}>All Characters</button>
+                <button id='favBtn' onClick={() => onFilterClick('favCharacters')}>Favorites</button>
+                <button id='mainBtn' onClick={() => onFilterClick('characters')}>All Characters</button>
             </div>
             <div className='headers'>
                 <img className='titleImage' src={headerPicture} alt='logo'></img>
