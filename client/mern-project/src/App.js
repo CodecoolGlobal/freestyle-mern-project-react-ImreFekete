@@ -9,7 +9,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [filteredChars, setFilteredChars] = useState(null);
   const [favCharacters, setFavCharacters] = useState(null);
-  const [appState, setAppstate] = useState('all');
+  const [appState, setAppstate] = useState('characters');
 
   useEffect(() => {
     const fetchFavourites = async () => {
@@ -50,15 +50,15 @@ function App() {
 
   const handleSearchInputChange = (event) => {
     const searchValue = event.target.value.toLowerCase();
-    // console.log(event.target.value)
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
-      setFilteredChars(characters.filter((character) => character.name.toLowerCase().includes(searchValue)))
+      appState == 'favCharacters' ? setFilteredChars(favCharacters.filter((character) => character.name.toLowerCase().includes(searchValue))) :
+        setFilteredChars(characters.filter((character) => character.name.toLowerCase().includes(searchValue)))
     )
   };
 
-  const handleFavorites = (state) => {
+  const handleAppState = (state) => {
     setAppstate(state);
   }
 
@@ -69,10 +69,10 @@ function App() {
   if (isLoaded) {
     return (
       <div className="App">
-        <Header onClickFavorites={handleFavorites} handleSearchInputChange={handleSearchInputChange} />
-        {appState === 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} favChar={favCharacters} handleSetFavChars={handleSetFavChars} displayState={appState} />)
+        <Header onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />
+        {appState === 'favCharacters' ? ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
           :
-          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} displayState={appState} />)}
+          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)}
       </div>
     );
   } else {

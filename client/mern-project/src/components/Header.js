@@ -1,10 +1,10 @@
-function Header({ onClickFavorites, handleSearchInputChange }) {
+function Header({ onFilterClick, handleSearchInputChange }) {
 
     return (
         <div className='headerWrapper'>
             <div className='headerButtons'>
-                <button onClick={() => onClickFavorites('favorites')}>Favorites</button>
-                <button onClick={() => onClickFavorites('all')}>All Characters</button>
+                <button onClick={() => onFilterClick('favCharacters')}>Favorites</button>
+                <button onClick={() => onFilterClick('characters')}>All Characters</button>
             </div>
             <div className='headers'>
                 <img className='titleImage' src='https://logos-world.net/wp-content/uploads/2022/01/Rick-And-Morty-Logo.png' alt='logo'></img>
