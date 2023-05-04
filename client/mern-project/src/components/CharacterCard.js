@@ -1,6 +1,5 @@
 const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
     const handleAddToFavButton = (character) => {
-        console.log(character);
         fetch('http://localhost:3000/api/favchar', {
             method: 'POST',
             headers: {
@@ -8,15 +7,30 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
             },
             body: JSON.stringify(character)
         })
-        .then(response => response.json())
-        .then(data => handleSetFavChars([...favChar, data]))
-        .catch(error => console.log(error));
+            .then(response => response.json())
+            .then(data => handleSetFavChars([...favChar, data]))
+            .catch(error => console.log(error));
     }
 
-    const handleRemoveFromFavButton = () => {
-
+    const handleRemoveFromFavButton = (character) => {
+        fetch(`http://localhost:3000/api/favchar/${character._id}`, {
+            method: 'DELETE',
+        })
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
+        handleSetFavChars(favChar.filter(char => char !== character))
     }
 
+    const isFav = (character, favChar) => {
+        let isFav = false;
+        favChar.forEach((char) => {
+            if (char.id === character.id) {
+                isFav = true;
+            }
+        })
+        return isFav;
+    }
 
     return (
         <article className='charCard_Wrapper'>
@@ -36,8 +50,10 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
 
                 </div>
                 <div className='section'>
-                    <button onClick={() => handleAddToFavButton(character)}>Add to Favorites</button>
-                    <button onClick={handleRemoveFromFavButton}>Remove from Favorites</button>
+                    {isFav(character, favChar) ?
+                        <button onClick={() => handleRemoveFromFavButton(character)}>Remove from Favorites</button>
+                        :
+                        <button onClick={() => handleAddToFavButton(character)}>Add to Favorites</button>}
                 </div>
             </div>
         </article>
