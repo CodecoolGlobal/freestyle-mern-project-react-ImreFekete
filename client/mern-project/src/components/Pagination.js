@@ -4,7 +4,7 @@ function Pagination({ nPages, currentPage, handleCurrentPage }) {
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
   return (
     <div className="pageNav">
-      <a onClick={() => handleCurrentPage(currentPage - 1)} href="#" className="pageNav_item">Prev</a>
+      <a onClick={() => handleCurrentPage(currentPage - 1)} href="#" className="pageNav_item"> {'<<'} </a>
 
       {
         pageNumbers.map(pgNumber => {
@@ -14,7 +14,7 @@ function Pagination({ nPages, currentPage, handleCurrentPage }) {
           </a>
         })
       }
-      <a onClick={() => handleCurrentPage(currentPage + 1)} href="#" className="pageNav_item">Next</a>
+      <a onClick={() => handleCurrentPage(currentPage + 1)} href="#" className="pageNav_item">{'>>'} </a>
     </div>
   );
 }

@@ -32,6 +32,7 @@
 
 .titleImage {
   width: 80%;
+  height: 250px;
   max-width: 600px;
 }
 
@@ -118,10 +119,11 @@ h2 {
 }
 
 .pageNav_item.active {
-  background-color: #4CAF50;
+  background-color: #5f1779;
   color: white;
 }
 
 .pageNav_item:hover:not(.active) {
-  background-color: #ddd;
+  background-color: #9539ce;
+  color: white;
 }
