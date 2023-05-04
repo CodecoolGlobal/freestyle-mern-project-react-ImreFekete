@@ -39,11 +39,11 @@ function App() {
         }
         else {
           setCharacters(fetchedCharacters);
+          setisLoaded(true);
         }
       } catch (error) {
         console.log(error)
       }
-      setisLoaded(true);
     }
     fetchPages('https://rickandmortyapi.com/api/character')
   }, []);

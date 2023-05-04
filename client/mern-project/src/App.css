@@ -152,12 +152,7 @@ h2 {
   height: 70px;
   width: auto;
   scale: 1;
-  transition: 2s;
-}
-
-.addB:hover,
-.removeB:hover {
-  scale: 1, 5;
+  transition: 3s;
 }
 
 .removeB {
