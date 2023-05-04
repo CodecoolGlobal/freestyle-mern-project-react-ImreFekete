@@ -4,6 +4,10 @@ import CharacterCard from "./CharacterCard";
 import Pagination from "./Pagination";
 
 function DisplayCharacters({ characters, displayState }) {
+  // User is currently on this page
+  const [currentPage, setCurrentPage] = useState(1);
+  // Number of Char to be displayed on each page   
+  const [charsPerPage] = useState(30);
   //determine the data type
   let data = null;
   if (displayState === 'favorites') {
@@ -12,10 +16,6 @@ function DisplayCharacters({ characters, displayState }) {
   else{
     data = characters;
   }
-  // User is currently on this page
-  const [currentPage, setCurrentPage] = useState(1);
-  // Number of Char to be displayed on each page   
-  const [charsPerPage] = useState(30);
   const indexOfLastChar = currentPage * charsPerPage;
   const indexOfFirstChar = indexOfLastChar - charsPerPage;
 

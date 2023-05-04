@@ -64,7 +64,6 @@ function App() {
   return (
     <div className="App">
       <Header onClickFavorites={handleFavorites} handleSearchInputChange={handleSearchInputChange} />
-      <br />
       {appState === 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} displayState={appState} />)
         :
         ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} displayState={appState} />)}

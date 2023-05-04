@@ -5,7 +5,7 @@
 
 .App {
   text-align: center;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 .headerWrapper {
@@ -105,6 +105,23 @@ h2 {
   flex-direction: column;
 }
 
+/*PAGINATION CSS*/
 .pageNav {
-  display: flex;
+  display: inline-block;
+}
+
+.pageNav_item {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pageNav_item.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pageNav_item:hover:not(.active) {
+  background-color: #ddd;
 }
