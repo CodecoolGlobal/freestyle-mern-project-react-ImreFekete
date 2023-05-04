@@ -143,8 +143,22 @@ h2 {
 .section {
   font-size: 18px;
   -webkit-text-stroke: 0.1px rgb(255, 255, 255);
-
 }
+
+.addB,
+.removeB {
+  display: flex;
+  position: absolute;
+  height: 70px;
+  width: auto;
+  scale: 1;
+  transition: 3s;
+}
+
+.removeB {
+  filter: hue-rotate(240deg)
+}
+
 
 .profilePicture {
   border-top-left-radius: 10px;

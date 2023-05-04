@@ -1,3 +1,5 @@
+import portalrick from '../portal-rick-and-morty.gif';
+
 const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
     const handleAddToFavButton = (character) => {
         fetch('http://localhost:3000/api/favchar', {
@@ -34,6 +36,11 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
     return (
         <article className='charCard_Wrapper'>
             <div className='charCard_ImageWrapper'>
+                {
+                    isFav(character, favChar) ?
+                        <img className='removeB' alt='remove' src={portalrick} onClick={() => handleRemoveFromFavButton(character)}></img> :
+                        <img className='addB' alt='add' src={portalrick} onClick={() => handleAddToFavButton(character)}></img>
+                }
                 <img className='profilePicture' src={character.image} alt={character.name} />
             </div>
             <div className='charCard_ContentWrapper'>
@@ -49,10 +56,14 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
 
                 </div>
                 <div className='section'>
-                    {isFav(character, favChar) ?
-                        <button onClick={() => handleRemoveFromFavButton(character)}>Remove from Favorites</button>
-                        :
-                        <button onClick={() => handleAddToFavButton(character)}>Add to Favorites</button>}
+
+                    {/* {
+                        isFav(character, favChar) ?
+                            <button onClick={() => handleRemoveFromFavButton(character)}>Remove from Favorites</button>
+                            :
+                            <button onClick={() => handleAddToFavButton(character)}>Add to Favorites</button>
+                    } */}
+
                 </div>
             </div>
         </article>
