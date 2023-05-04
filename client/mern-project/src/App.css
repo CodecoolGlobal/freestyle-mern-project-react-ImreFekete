@@ -147,6 +147,24 @@ h2 {
   flex-direction: column;
 }
 
+/*PAGINATION CSS*/
 .pageNav {
-  display: flex;
+  display: inline-block;
+}
+
+.pageNav_item {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pageNav_item.active {
+  background-color: #5f1779;
+  color: white;
+}
+
+.pageNav_item:hover:not(.active) {
+  background-color: #9539ce;
+  color: white;
 }
