@@ -1,7 +1,7 @@
-const mongoose = require('mongoose'); 
-const { Schema, model } = mongoose; 
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 const favouriteCharacterSchema = new Schema(
-    { 
+    {
         id: Number,
         name: String,
         status: String,
@@ -14,7 +14,7 @@ const favouriteCharacterSchema = new Schema(
         episode: Array,
         url: String,
         created: String,
-        createdAt: Date, 
-    }); 
-const FavChar = model('FavouriteCharacter', favouriteCharacterSchema); 
+        createdAt: Date,
+    });
+const FavChar = model('FavouriteCharacter', favouriteCharacterSchema);
 module.exports = FavChar;

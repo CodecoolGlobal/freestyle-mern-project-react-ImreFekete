@@ -17,8 +17,8 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
             method: 'DELETE',
         })
             .then(response => response.json())
+            .then(() => handleSetFavChars(favChar.filter(char => char.id !== character.id)))
             .catch(error => console.log(error));
-        handleSetFavChars(favChar.filter(char => char.id !== character.id))
     }
 
     const isFav = (character, favChar) => {
