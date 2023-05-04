@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import DisplayCharacters from './components/displayCharacters';
-
+import portalrick from './portal-rick-and-morty.gif';
 
 function App() {
   const [isLoaded, setisLoaded] = useState(false);
@@ -75,7 +75,7 @@ function App() {
     return (
       <div className="App">
         <div className="loadingContainer">
-          <img className='loading' alt='loading' src="https://media.tenor.com/BgR83Df82t0AAAAi/portal-rick-and-morty.gif"></img>
+          <img className='loading' alt='loading' src={portalrick}></img>
         </div>
       </div>
     )
