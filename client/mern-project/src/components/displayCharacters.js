@@ -8,21 +8,14 @@ function DisplayCharacters({ characters, displayState }) {
   const [currentPage, setCurrentPage] = useState(1);
   // Number of Char to be displayed on each page   
   const [charsPerPage] = useState(30);
-  //determine the data type
-  let data = null;
-  if (displayState === 'favorites') {
-    data = characters.map(character=> character.character);
-  }
-  else{
-    data = characters;
-  }
+ 
   const indexOfLastChar = currentPage * charsPerPage;
   const indexOfFirstChar = indexOfLastChar - charsPerPage;
 
   // Chars to be displayed on the current page
-  const currentChars = data.slice(indexOfFirstChar,
+  const currentChars = characters.slice(indexOfFirstChar,
     indexOfLastChar);
-  const nPages = Math.ceil(data.length / charsPerPage);
+  const nPages = Math.ceil(characters.length / charsPerPage);
 
   return (
     <>
