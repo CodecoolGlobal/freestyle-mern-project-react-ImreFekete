@@ -62,13 +62,17 @@ function App() {
     setAppstate(state);
   }
 
+  const handleSetFavChars = (newCharList) => {
+    setFavCharacters(newCharList)
+  }
+
   if (isLoaded) {
     return (
       <div className="App">
         <Header onClickFavorites={handleFavorites} handleSearchInputChange={handleSearchInputChange} />
-        {appState === 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} displayState={appState} />)
+        {appState === 'favorites' ? (favCharacters && <DisplayCharacters characters={favCharacters} favChar={favCharacters} handleSetFavChars={handleSetFavChars} displayState={appState} />)
           :
-          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} displayState={appState} />)}
+          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} displayState={appState} />)}
       </div>
     );
   } else {

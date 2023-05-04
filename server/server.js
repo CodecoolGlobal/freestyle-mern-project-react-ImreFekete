@@ -23,6 +23,7 @@ app.get('/api/favchar', async (req, res) => {
 });
 
 app.post('/api/favchar', (req, res) => {
+    console.log(req.body);
     const character = req.body;
     const createdAt = Date.now() + budapestTimeZone;
     const favChar = new FavChar({
