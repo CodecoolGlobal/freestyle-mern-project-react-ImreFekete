@@ -66,7 +66,7 @@ button {
 }
 
 p {
-  margin: 5px;
+  margin: 10px;
 }
 
 label {
@@ -80,12 +80,12 @@ input {
 
 h2 {
   font-family: 'Get Schwifty';
-  font-size: 35px;
+  font-size: 40px;
   color: rgb(65, 255, 223);
   letter-spacing: 0.1em;
   -webkit-text-stroke: 0.1px rgb(0, 0, 0);
-  margin-top: 10px;
-  margin-bottom: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .displayCharacters {
@@ -149,6 +149,7 @@ h2 {
 .removeB {
   display: flex;
   position: absolute;
+  cursor: pointer;
   height: 70px;
   width: auto;
   scale: 1;

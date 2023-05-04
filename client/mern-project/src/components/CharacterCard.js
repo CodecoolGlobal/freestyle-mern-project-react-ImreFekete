@@ -38,8 +38,8 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
             <div className='charCard_ImageWrapper'>
                 {
                     isFav(character, favChar) ?
-                        <img className='removeB' alt='remove' src={portalrick} onClick={() => handleRemoveFromFavButton(character)}></img> :
-                        <img className='addB' alt='add' src={portalrick} onClick={() => handleAddToFavButton(character)}></img>
+                        <img className='removeB' title='Remove from favorites' alt='remove' src={portalrick} onClick={() => handleRemoveFromFavButton(character)}></img> :
+                        <img className='addB' title='Add to favorites' alt='add' src={portalrick} onClick={() => handleAddToFavButton(character)}></img>
                 }
                 <img className='profilePicture' src={character.image} alt={character.name} />
             </div>
