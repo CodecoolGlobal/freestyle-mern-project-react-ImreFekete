@@ -17,7 +17,6 @@ function App() {
       const res = await fetch('http://localhost:3000/api/favchar');
       const data = await res.json();
       setFavCharacters(data);
-      setIsLoaded(true);
     } catch (error) {
       console.log(error);
     }
@@ -38,15 +37,14 @@ function App() {
 
         if (data.info && data.info.next) {
           fetchPages(data.info.next);
-          setIsLoaded(true);
         }
         else {
           setCharacters(fetchedCharacters);
-          setIsLoaded(true);
         }
       } catch (error) {
         console.log(error)
       }
+      setIsLoaded(true);
     }
     fetchPages('https://rickandmortyapi.com/api/character')
   }, []);
@@ -109,6 +107,7 @@ function App() {
     }
   }, [appState])
 
+  console.log(isLoaded);
 
   if (isLoaded) {
     return (
