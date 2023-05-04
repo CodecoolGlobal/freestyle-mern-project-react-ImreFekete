@@ -18,7 +18,7 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
         })
             .then(response => response.json())
             .catch(error => console.log(error));
-        handleSetFavChars(favChar.filter(char => char.id !==character.id))
+        handleSetFavChars(favChar.filter(char => char.id !== character.id))
     }
 
     const isFav = (character, favChar) => {
