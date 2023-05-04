@@ -92,19 +92,19 @@ h2 {
   max-width: 1920px;
   color: rgb(77, 255, 133);
   /* OPTION 1 */
-  /* background-image: url('https://rare-gallery.com/uploads/posts/340156-Rick-and-Morty-Cartoon-Morty-Smith-Rick-Sanchez-Night-Sky-Space-Stars.jpg'); */
+  /* background-image: url('https://rare-gallery.com/uploads/posts/340156-Rick-and-Morty-Cartoon-Morty-Smith-Rick-Sanchez-Night-Sky-Space-Stars.jpg');
   /* background-size: contain;
   background-attachment: fixed;
   background-repeat: repeat; */
   /* OPTION 2 */
-  /* background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/9494.png');
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat; */
-  /* OPTION 3 */
-  background-image: url('https://wallpaper.dog/large/10839498.jpg');
+  background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/9494.png');
   background-size: 100%;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* OPTION 3
+  background-image: url('https://wallpaper.dog/large/10839498.jpg');
+  background-size: 100%;
+  background-attachment: fixed; */
 }
 
 .charCard_Wrapper {
@@ -153,7 +153,7 @@ h2 {
 }
 
 .pageNav_item {
-  color: black;
+  color: rgb(65, 255, 223);
   float: left;
   padding: 8px 16px;
   text-decoration: none;
@@ -165,6 +165,6 @@ h2 {
 }
 
 .pageNav_item:hover:not(.active) {
-  background-color: #9539ce;
+  background-color: rgb(77, 255, 133);
   color: white;
 }
