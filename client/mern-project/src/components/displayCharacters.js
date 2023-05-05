@@ -33,7 +33,7 @@ function DisplayCharacters({ characters, favChar, handleSetFavChars, appState}) 
       </div>
         {
           nPages > 0 ? <Pagination nPages={nPages} currentPage={currentPage} handleCurrentPage={setCurrentPage} /> :
-          <h2>You have no favourites YET!</h2>
+          <h2>You have no favorites YET!</h2>
         }
     </>
   );
