@@ -53,7 +53,9 @@ function App() {
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
-      appState === 'favCharacters' ? setFilteredChars(favCharacters.filter((character) => character.name.toLowerCase().includes(searchValue))) :
+      appState === 'favCharacters' ?
+        setFilteredChars(favCharacters.filter((character) => character.name.toLowerCase().includes(searchValue)))
+        :
         setFilteredChars(characters.filter((character) => character.name.toLowerCase().includes(searchValue)))
     )
   };
@@ -70,7 +72,8 @@ function App() {
     return (
       <div className="App">
         <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />
-        {appState === 'favCharacters' ? ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+        {appState === 'favCharacters' ?
+          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
           :
           ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)}
       </div>
@@ -84,6 +87,6 @@ function App() {
       </div>
     )
   }
-}
+};
 
 export default App;

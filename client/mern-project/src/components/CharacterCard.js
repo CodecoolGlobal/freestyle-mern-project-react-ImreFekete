@@ -9,18 +9,17 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
             },
             body: JSON.stringify(character)
         })
-            .then(response => response.json())
-            .then(data => handleSetFavChars([...favChar, data]))
-            .catch(error => console.log(error));
+            .then((response) => response.json())
+            .then((data) => handleSetFavChars([...favChar, data]))
+            .catch((error) => console.log(error));
     }
 
     const handleRemoveFromFavButton = (character) => {
         fetch(`http://localhost:3000/api/favchar/${character.id}`, {
             method: 'DELETE',
         })
-            .then(response => response.json())
-            .then(() => handleSetFavChars(favChar.filter(char => char.id !== character.id)))
-            .catch(error => console.log(error));
+            .then((response) => handleSetFavChars(favChar.filter(char => char.id !== character.id)))
+            .catch((error) => console.log(error));
     }
 
     const isFav = (character, favChar) => {
@@ -38,7 +37,8 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
             <div className='charCard_ImageWrapper'>
                 {
                     isFav(character, favChar) ?
-                        <img className='removeB' title='Remove from favorites' alt='remove' src={portalrick} onClick={() => handleRemoveFromFavButton(character)}></img> :
+                        <img className='removeB' title='Remove from favorites' alt='remove' src={portalrick} onClick={() => handleRemoveFromFavButton(character)}></img>
+                        :
                         <img className='addB' title='Add to favorites' alt='add' src={portalrick} onClick={() => handleAddToFavButton(character)}></img>
                 }
                 <img className='profilePicture' src={character.image} alt={character.name} />
@@ -53,21 +53,12 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
                 </div>
                 <div className='section'>
                     <span>Last known location: <p>{character.location.name}</p></span>
-
                 </div>
                 <div className='section'>
-
-                    {/* {
-                        isFav(character, favChar) ?
-                            <button onClick={() => handleRemoveFromFavButton(character)}>Remove from Favorites</button>
-                            :
-                            <button onClick={() => handleAddToFavButton(character)}>Add to Favorites</button>
-                    } */}
-
                 </div>
             </div>
         </article>
     )
-}
+};
 
 export default CharacterCard;

@@ -5,11 +5,10 @@ function Pagination({ nPages, currentPage, handleCurrentPage }) {
   return (
     <div className="pageNav">
       <a onClick={() => handleCurrentPage(currentPage - 1)} href="#" className="pageNav_item"> {'<<'} </a>
-
       {
         pageNumbers.map(pgNumber => {
-          const className = pgNumber==currentPage ? "pageNav_item active":"pageNav_item";
-          return <a key={pgNumber} onClick={(event) => handleCurrentPage(pgNumber)} href="#" className={className}>
+          const className = pgNumber === currentPage ? "pageNav_item active":"pageNav_item";
+          return <a key={pgNumber} onClick={(event) => handleCurrentPage(pgNumber)} href= "#" className={className}>
             {pgNumber}
           </a>
         })

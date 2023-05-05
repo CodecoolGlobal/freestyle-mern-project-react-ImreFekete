@@ -21,7 +21,6 @@ app.get('/api/favchar', async (req, res) => {
 });
 
 app.post('/api/favchar', (req, res) => {
-    console.log(req.body);
     const character = req.body;
     const createdAt = Date.now() + budapestTimeZone;
     const favChar = new FavChar({
@@ -30,21 +29,19 @@ app.post('/api/favchar', (req, res) => {
     });
     console.log(favChar);
     favChar.save()
-        .then(addedChar => res.status(200).json(addedChar))
+        .then((addedChar) => res.status(200).json(addedChar))
         .catch(() => res.status(400).json({ success: false }));
 });
 
-app.delete('/api/favchar/:id', async (req, res) => {
-    // console.log(req.params.id);
+app.delete('/api/favchar/:id', (req, res) => {
     const deleteDocumentId = req.params.id;
     FavChar.deleteOne({ id: deleteDocumentId })
-        .then(deletedChar => console.log(deletedChar))
-        .catch(error => console.error(error));
-    const allFavChars = await FavChar.find();
-    res.status(200).json(allFavChars);
+        .then((deletedChar) => console.log(deletedChar))
+        .catch((error) => console.error(error));
+    res.status(200).json({ success: true });
 });
 
 mongoose.connect(`mongodb+srv://${userId}:${password}@${clusterId}.mongodb.net/mern-project`)
     .then(() => {
         app.listen(PORT, () => console.log(`http://127.0.0.1:${PORT}`));
-    })
+    });
