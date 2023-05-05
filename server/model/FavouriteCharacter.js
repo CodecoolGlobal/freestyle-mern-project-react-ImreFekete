@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 const favouriteCharacterSchema = new Schema(
     {
-        id: Number,
+        id: {
+            type: Number,
+            required: true,
+            unique: true
+        },
         name: String,
         status: String,
         species: String,
