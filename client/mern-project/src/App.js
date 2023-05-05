@@ -25,9 +25,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-
     let fetchedCharacters = [];
-
     const fetchPages = async (url) => {
       try {
         const res = await fetch(url)
