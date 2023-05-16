@@ -30,7 +30,9 @@ app.post('/api/favchar', (req, res) => {
     console.log(favChar);
     favChar.save()
         .then((addedChar) => res.status(200).json(addedChar))
-        .catch(() => res.status(400).json({ success: false }));
+        .catch((error) => 
+        {   cosnole.log(error)
+            res.status(400).json({ success: false })});
 });
 
 app.delete('/api/favchar/:id', (req, res) => {

@@ -9,6 +9,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [filteredChars, setFilteredChars] = useState(null);
   const [favCharacters, setFavCharacters] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [appState, setAppstate] = useState('characters');
 
   useEffect(() => {
@@ -48,6 +49,7 @@ function App() {
 
   const handleSearchInputChange = (event) => {
     const searchValue = event.target.value.toLowerCase();
+    setCurrentPage(1);
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
@@ -69,11 +71,11 @@ function App() {
   if (isLoaded) {
     return (
       <div className="App">
-        <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />
+        <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} setCurrentPage={setCurrentPage}/>
         {appState === 'favCharacters' ?
-          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} />)
           :
-          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)}
+          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} />)}
       </div>
     );
   } else {
