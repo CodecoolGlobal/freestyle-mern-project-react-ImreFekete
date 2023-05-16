@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import DisplayCharacters from './components/displayCharacters';
 import portalrick from './portal-rick-and-morty.gif';
+import DisplayLocation from './components/DisplayLocation';
 
 function App() {
   const [isLoaded, setisLoaded] = useState(false);
@@ -11,6 +12,7 @@ function App() {
   const [favCharacters, setFavCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [appState, setAppstate] = useState('characters');
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
     const fetchFavourites = async () => {
@@ -71,11 +73,14 @@ function App() {
   if (isLoaded) {
     return (
       <div className="App">
-        <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} setCurrentPage={setCurrentPage}/>
+        <Header appState={appState} setAppState={setAppstate} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} setCurrentPage={setCurrentPage} />
         {appState === 'favCharacters' ?
-          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} />)
+          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} setAppState={setAppstate} setLocation={setLocation} />)
           :
-          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} />)}
+          appState === 'displayLocation' ? <DisplayLocation location={location}/>
+            :
+            ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} setAppState={setAppstate} setLocation={setLocation}/>)
+        }
       </div>
     );
   } else {

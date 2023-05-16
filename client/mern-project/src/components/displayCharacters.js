@@ -3,7 +3,7 @@ import { useState } from "react";
 import CharacterCard from "./CharacterCard";
 import Pagination from "./Pagination";
 
-function DisplayCharacters({ characters, favChar, handleSetFavChars, currentPage, setCurrentPage }) {
+function DisplayCharacters({ characters, favChar, handleSetFavChars, currentPage, setCurrentPage, setAppState, setLocation}) {
   // Number of Char to be displayed on each page   
   const [charsPerPage] = useState(30);
 
@@ -25,6 +25,8 @@ function DisplayCharacters({ characters, favChar, handleSetFavChars, currentPage
               character={char}
               favChar={favChar}
               handleSetFavChars={handleSetFavChars}
+              setAppState={setAppState}
+              setLocation={setLocation}
             />
           )
         }

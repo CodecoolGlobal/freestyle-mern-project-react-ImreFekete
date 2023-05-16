@@ -1,6 +1,6 @@
 import portalrick from '../portal-rick-and-morty.gif';
 
-const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
+const CharacterCard = ({ character, favChar, handleSetFavChars, setAppState, setLocation}) => {
     const handleAddToFavButton = (character) => {
         fetch('http://localhost:3000/api/favchar', {
             method: 'POST',
@@ -52,7 +52,7 @@ const CharacterCard = ({ character, favChar, handleSetFavChars }) => {
                     </div>
                 </div>
                 <div className='section'>
-                    <span>Last known location: <p>{character.location.name}</p></span>
+                    <span onClick={()=>{setAppState('displayLocation'); setLocation(character.location)}}>Last known location: <p>{character.location.name}</p></span>
                 </div>
                 <div className='section'>
                 </div>
