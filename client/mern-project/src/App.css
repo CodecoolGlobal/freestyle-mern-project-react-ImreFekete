@@ -75,6 +75,7 @@ body {
 }
 
 .titleImage {
+  cursor: pointer;
   width: 55%;
   max-width: 600px;
   height: 250px;
@@ -168,6 +169,12 @@ h2 {
 }
 
 .section {
+  font-size: 18px;
+  -webkit-text-stroke: 0.1px rgb(255, 255, 255);
+}
+
+.locationSection {
+  cursor: pointer;
   font-size: 18px;
   -webkit-text-stroke: 0.1px rgb(255, 255, 255);
 }

@@ -9,7 +9,7 @@ function Header({ appState, setAppState, onFilterClick, handleSearchInputChange,
                 {appState === 'favCharacters' && <button id='mainBtn' onClick={() => { setCurrentPage(1); onFilterClick('characters') }}>Back to Main Page</button>}
             </div>
             <div className='headers'>
-                <img className='titleImage' src={headerPicture} alt='logo' onClick={() => setAppState('characters')} />
+                <img className='titleImage' title="Go to main page" src={headerPicture} alt='logo' onClick={() => setAppState('characters')} />
             </div>
             <div className='searchBar'>
                 <label>Search for a character in our database!</label>

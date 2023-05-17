@@ -51,7 +51,7 @@ const CharacterCard = ({ character, favChar, handleSetFavChars, setAppState, set
                         <p>Species: {character.species}</p>
                     </div>
                 </div>
-                <div className='section'>
+                <div className='locationSection' title="Click to go location">
                     <span onClick={()=>{setAppState('displayLocation'); setLocation(character.location)}}>Last known location: <p>{character.location.name}</p></span>
                 </div>
                 <div className='section'>
