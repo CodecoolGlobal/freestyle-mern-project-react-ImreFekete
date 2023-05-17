@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import portalrick from '../portal-rick-and-morty.gif';
 
 function DisplayLocation({ location }) {
   const [locationData, setLocationData] = useState(null);
@@ -22,12 +23,31 @@ function DisplayLocation({ location }) {
       Promise.all(promises).then((results) => setCharacters(results));
     }
     getData();
-  }, [])
+  }, [location.url])
 
-  return locationData && characters ? <div>
-    <div style={{ backgroundColor: "white" }}><p>{locationData.name}</p></div>
-    <div style={{ backgroundColor: "white" }}><p>{locationData.dimension}</p></div>
-    <div style={{ backgroundColor: "white" }}> {characters.map((char) => { return <p key={char.id}>{char.name}</p> })}</div>
-  </div> : <p>loading...</p>
+  const searchBarElement = document.getElementById('searchBar');
+  searchBarElement.style.display = "none";
+
+  return (
+    (locationData && characters) ?
+      <div className="locationList">
+        <div style={{ backgroundColor: "black" }}>
+          <h2>Location: {locationData.name}</h2>
+        </div>
+        <div style={{ backgroundColor: "black" }}>
+          <h2>Dimension: {locationData.dimension}</h2>
+        </div>
+        <div style={{ backgroundColor: "black" }}>
+          <h2>Characters:</h2>
+          {characters.map((char) => {
+            return <h3 key={char.id}>{char.name}</h3>
+          })}
+        </div>
+      </div>
+      :
+      <div className="loadingContainer">
+        <img className='loading' alt='loading' src={portalrick}></img>
+      </div>
+  )
 }
 export default DisplayLocation;

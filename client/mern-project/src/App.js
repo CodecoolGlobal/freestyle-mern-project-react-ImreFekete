@@ -66,11 +66,11 @@ function App() {
 
   const handleAppState = (state) => {
     setAppstate(state);
-  }
+  };
 
   const handleSetFavChars = (newCharList) => {
     setFavCharacters(newCharList)
-  }
+  };
 
   if (isLoaded) {
     return (

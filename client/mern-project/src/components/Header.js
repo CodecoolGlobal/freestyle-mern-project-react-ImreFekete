@@ -11,7 +11,7 @@ function Header({ appState, setAppState, onFilterClick, handleSearchInputChange,
             <div className='headers'>
                 <img className='titleImage' title="Go to main page" src={headerPicture} alt='logo' onClick={() => setAppState('characters')} />
             </div>
-            <div className='searchBar'>
+            <div className='searchBar' id="searchBar">
                 <label>Search for a character in our database!</label>
                 <input type="text" placeholder='Search for characters...' onChange={handleSearchInputChange} />
             </div>
