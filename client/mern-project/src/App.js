@@ -66,6 +66,8 @@ function App() {
 
   const handleAppState = (state) => {
     setAppstate(state);
+    const searchBarElement = document.getElementById('searchBar');
+    searchBarElement.style.display = 'flex';
   };
 
   const handleSetFavChars = (newCharList) => {
@@ -75,7 +77,7 @@ function App() {
   if (isLoaded) {
     return (
       <div className="App">
-        <Header appState={appState} setAppState={setAppstate} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} setCurrentPage={setCurrentPage} />
+        <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} setCurrentPage={setCurrentPage} />
         {appState === 'favCharacters' ?
           ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} setAppState={setAppstate} setLocation={setLocation} />)
           :

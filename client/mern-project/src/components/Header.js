@@ -1,6 +1,6 @@
 import headerPicture from '../Rick-And-Morty-Logo.png';
 
-function Header({ appState, setAppState, onFilterClick, handleSearchInputChange, setCurrentPage }) {
+function Header({ appState, onFilterClick, handleSearchInputChange, setCurrentPage }) {
 
     return (
         <div className='headerWrapper'>
@@ -9,7 +9,7 @@ function Header({ appState, setAppState, onFilterClick, handleSearchInputChange,
                 {appState === 'favCharacters' && <button id='mainBtn' onClick={() => { setCurrentPage(1); onFilterClick('characters') }}>Back to Main Page</button>}
             </div>
             <div className='headers'>
-                <img className='titleImage' title="Go to main page" src={headerPicture} alt='logo' onClick={() => setAppState('characters')} />
+                <img className='titleImage' title="Go to main page" src={headerPicture} alt='logo' onClick={() => onFilterClick('characters')} />
             </div>
             <div className='searchBar' id="searchBar">
                 <label>Search for a character in our database!</label>
