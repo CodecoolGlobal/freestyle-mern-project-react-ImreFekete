@@ -25,7 +25,9 @@ function App() {
   }, [])
 
   useEffect(() => {
+
     let fetchedCharacters = [];
+
     const fetchPages = async (url) => {
       try {
         const res = await fetch(url)
@@ -66,25 +68,23 @@ function App() {
     setFavCharacters(newCharList)
   }
 
-  if (isLoaded) {
-    return (
-      <div className="App">
-        <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />
-        {appState === 'favCharacters' ?
-          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
-          :
-          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)}
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
+  return (
+    <div className="App">
+      {isLoaded ?
+        <>
+          (<Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />,
+          {appState === 'favCharacters' ?
+            ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+            :
+            ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+          })
+        </>
+        :
         <div className="loadingContainer">
           <img className='loading' alt='loading' src={portalrick}></img>
-        </div>
-      </div>
-    )
-  }
+        </div>}
+    </div>
+  )
 };
 
 export default App;
