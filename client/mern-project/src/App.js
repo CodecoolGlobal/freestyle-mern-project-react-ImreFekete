@@ -3,13 +3,16 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import DisplayCharacters from './components/displayCharacters';
 import portalrick from './portal-rick-and-morty.gif';
+import DisplayLocation from './components/DisplayLocation';
 
 function App() {
   const [isLoaded, setisLoaded] = useState(false);
   const [characters, setCharacters] = useState([]);
   const [filteredChars, setFilteredChars] = useState(null);
   const [favCharacters, setFavCharacters] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [appState, setAppstate] = useState('characters');
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
     const fetchFavourites = async () => {
@@ -50,6 +53,7 @@ function App() {
 
   const handleSearchInputChange = (event) => {
     const searchValue = event.target.value.toLowerCase();
+    setCurrentPage(1);
     searchValue === '' ? (
       setFilteredChars(null)
     ) : (
@@ -68,23 +72,28 @@ function App() {
     setFavCharacters(newCharList)
   }
 
-  return (
-    <div className="App">
-      {isLoaded ?
-        <>
-          (<Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />,
-          {appState === 'favCharacters' ?
-            ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+  if (isLoaded) {
+    return (
+      <div className="App">
+        <Header appState={appState} setAppState={setAppstate} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} setCurrentPage={setCurrentPage} />
+        {appState === 'favCharacters' ?
+          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} setAppState={setAppstate} setLocation={setLocation} />)
+          :
+          appState === 'displayLocation' ? <DisplayLocation location={location} />
             :
-            ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
-          })
-        </>
-        :
+            ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} currentPage={currentPage} setCurrentPage={setCurrentPage} setAppState={setAppstate} setLocation={setLocation} />)
+        }
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
         <div className="loadingContainer">
           <img className='loading' alt='loading' src={portalrick}></img>
-        </div>}
-    </div>
-  )
-};
+        </div>
+      </div>
+    )
+  };
+}
 
 export default App;
