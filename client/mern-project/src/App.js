@@ -69,22 +69,23 @@ function App() {
   if (isLoaded) {
     return (
       <div className="App">
-        <Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />
-        {appState === 'favCharacters' ?
-          ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+        {isLoaded ?
+          <>
+            (<Header appState={appState} onFilterClick={handleAppState} handleSearchInputChange={handleSearchInputChange} />,
+            {appState === 'favCharacters' ?
+              ((filteredChars || favCharacters) && <DisplayCharacters characters={(filteredChars || favCharacters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+              :
+              ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)
+            })
+          </>
           :
-          ((filteredChars || characters) && <DisplayCharacters characters={(filteredChars || characters)} favChar={favCharacters} handleSetFavChars={handleSetFavChars} />)}
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <div className="loadingContainer">
-          <img className='loading' alt='loading' src={portalrick}></img>
-        </div>
+          <div className="loadingContainer">
+            <img className='loading' alt='loading' src={portalrick}></img>
+          </div>}
       </div>
     )
   }
 };
 
 export default App;
+

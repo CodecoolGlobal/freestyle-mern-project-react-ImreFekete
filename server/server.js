@@ -27,7 +27,6 @@ app.post('/api/favchar', (req, res) => {
         ...character,
         createdAt,
     });
-    console.log(favChar);
     favChar.save()
         .then((addedChar) => res.status(200).json(addedChar))
         .catch(() => res.status(400).json({ success: false }));
