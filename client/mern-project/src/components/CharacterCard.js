@@ -1,6 +1,6 @@
 import portalrick from '../portal-rick-and-morty.gif';
 
-const CharacterCard = ({ character, favChar, handleSetFavChars, setAppState, setLocation}) => {
+const CharacterCard = ({ character, favChar, handleSetFavChars, setAppState, setLocation }) => {
     const handleAddToFavButton = (character) => {
         fetch('http://localhost:3000/api/favchar', {
             method: 'POST',
@@ -12,15 +12,18 @@ const CharacterCard = ({ character, favChar, handleSetFavChars, setAppState, set
             .then((response) => response.json())
             .then((data) => handleSetFavChars([...favChar, data]))
             .catch((error) => console.log(error));
-    }
+    };
 
     const handleRemoveFromFavButton = (character) => {
-        fetch(`http://localhost:3000/api/favchar/${character.id}`, {
-            method: 'DELETE',
-        })
-            .then((response) => handleSetFavChars(favChar.filter(char => char.id !== character.id)))
-            .catch((error) => console.log(error));
-    }
+        let result = window.confirm('Are you sure you want to delete this favorite character?');
+        if (result) {
+            fetch(`http://localhost:3000/api/favchar/${character.id}`, {
+                method: 'DELETE',
+            })
+                .then((response) => handleSetFavChars(favChar.filter(char => char.id !== character.id)))
+                .catch((error) => console.log(error));
+        };
+    };
 
     const isFav = (character, favChar) => {
         let isFav = false;
@@ -30,7 +33,7 @@ const CharacterCard = ({ character, favChar, handleSetFavChars, setAppState, set
             }
         })
         return isFav;
-    }
+    };
 
     return (
         <article className='charCard_Wrapper'>
@@ -52,13 +55,13 @@ const CharacterCard = ({ character, favChar, handleSetFavChars, setAppState, set
                     </div>
                 </div>
                 <div className='locationSection' title="Click to go location">
-                    <span onClick={()=>{setAppState('displayLocation'); setLocation(character.location)}}>Last known location: <p>{character.location.name}</p></span>
+                    <span onClick={() => { setAppState('displayLocation'); setLocation(character.location) }}>Last known location: <p>{character.location.name}</p></span>
                 </div>
                 <div className='section'>
                 </div>
             </div>
         </article>
-    )
+    );
 };
 
 export default CharacterCard;
