@@ -1,9 +1,11 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 // MONGOOSE: 
 const mongoose = require('mongoose');
 let FavChar = require('./model/FavouriteCharacter');
-const userId = 'markveszelka';
-const password = 'iV4cZxpwodOxNYTw';
-const clusterId = 'cluster0.ukekemt';
+const userId = process.env.USER_ID;
+const password = process.env.PASSWORD;
+const clusterId = process.env.CLUSTER_ID;
 const budapestTimeZone = (120 * 60 * 1000);
 
 //EXPRESS:
@@ -42,7 +44,7 @@ app.delete('/api/favchar/:id', (req, res) => {
     res.status(200).json({ success: true });
 });
 
-mongoose.connect(`mongodb+srv://${userId}:${password}@${clusterId}.mongodb.net/mern-project`)
+mongoose.connect(`mongodb+srv://${userId}:${password}@${clusterId}`)
     .then(() => {
         app.listen(PORT, () => console.log(`http://127.0.0.1:${PORT}`));
     });
