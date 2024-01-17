@@ -46,7 +46,7 @@ If it is running you will see the url where you can access the server in the ter
   $ cd client/mern-project
   $ npm start
 ```
-If the client notifies you that the port 3000 is already in usem type yes so it will start on a different port.
+If the client notifies you that the port 3000 is already in use and it need another port, type yes so it will start on a different port.
 After launch you can access the frontend in the browser with the link in the terminal:
 ```terminal
 Compiled successfully!
